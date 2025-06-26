@@ -75,7 +75,10 @@
 				"outputs": [
 					{
 						"referenceName": "AvroBlobStorage",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"avro_name": "Clientes"
+						}
 					}
 				]
 			}
