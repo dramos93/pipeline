@@ -68,8 +68,11 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ClientesJsonBlobStorage",
-						"type": "DatasetReference"
+						"referenceName": "JsonBlobStorage",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_json": "clientes"
+						}
 					}
 				],
 				"outputs": [
