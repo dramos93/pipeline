@@ -1,0 +1,30 @@
+{
+	"name": "JsonBlobStorage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "clientes.json",
+				"folderPath": "Agricopel",
+				"container": "rawzone"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"tipo_cliente": {
+					"type": "string"
+				},
+				"pais": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
