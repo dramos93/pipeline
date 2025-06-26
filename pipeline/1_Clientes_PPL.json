@@ -64,7 +64,48 @@
 							"type": "AvroWriteSettings"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['tipo_cliente']"
+								},
+								"sink": {
+									"name": "tipo_cliente",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['pais']"
+								},
+								"sink": {
+									"name": "pais",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['file_name']"
+								},
+								"sink": {
+									"name": "file_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ingestion_ts']"
+								},
+								"sink": {
+									"name": "ingestion_ts",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
