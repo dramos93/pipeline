@@ -1,16 +1,24 @@
 {
-	"name": "ClientesJsonBlobStorage",
+	"name": "JsonBlobStorage",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_json": {
+				"type": "String"
+			}
 		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "clientes.json",
+				"fileName": {
+					"value": "@concat(dataset().file_json, '.json')",
+					"type": "Expression"
+				},
 				"folderPath": "Agricopel",
 				"container": "rawzone"
 			}
