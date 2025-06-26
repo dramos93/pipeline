@@ -17,6 +17,19 @@
 				"typeProperties": {
 					"source": {
 						"type": "DelimitedTextSource",
+						"additionalColumns": [
+							{
+								"name": "file_name",
+								"value": "$$FILENAME"
+							},
+							{
+								"name": "ingestion_ts",
+								"value": {
+									"value": "@utcNow()",
+									"type": "Expression"
+								}
+							}
+						],
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
@@ -38,6 +51,114 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "produto",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "produto",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "pais",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "pais",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "quantidade",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "quantidade",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "valor_total",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "valor_total",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "data_venda",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "data_venda",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "mes",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "mes",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ano",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ano",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "file_name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "file_name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ingestion_ts",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ingestion_ts",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
