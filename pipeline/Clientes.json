@@ -18,7 +18,7 @@
 				"userProperties": []
 			},
 			{
-				"name": "Copy data1",
+				"name": "CopyClientes",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
