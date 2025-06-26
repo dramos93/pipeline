@@ -1,0 +1,73 @@
+{
+	"name": "0_GlobalSales_PPL",
+	"properties": {
+		"activities": [
+			{
+				"name": "1_Clientes_PPL",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "1_Clientes_PPL",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "2_Produtos_PPL",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "1_Clientes_PPL",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_Produtos_PPL",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "3_Vendas_PPL",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "2_Produtos_PPL",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "3_Vendas_PPL",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Agricopel/GlobalSales"
+		},
+		"annotations": []
+	}
+}
